@@ -1,9 +1,15 @@
 import React from 'react';
-import Card from './components/Card'
+import { Provider } from 'react-redux'
+
+import AnimesList from './components/AnimesList'
+
+import store from './store'
 
 const App: React.FC = () => {
   return (
-    <Card />
+    <Provider store={store}>
+      <AnimesList />
+    </Provider>
   );
 }
 
