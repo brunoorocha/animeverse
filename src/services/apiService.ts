@@ -1,9 +1,9 @@
 import apolloClient from './apolloClient'
 import { GQLApiResourceRequest } from './apiResourceRequest'
-import ApolloClient, { ApolloQueryResult } from 'apollo-client'
+import { ApolloQueryResult } from 'apollo-client'
 
 export interface ApiServiceInterface {
-  request (resource: GQLApiResourceRequest): Promise<ApolloQueryResult<any>>
+  request<T> (resource: GQLApiResourceRequest): Promise<ApolloQueryResult<T>>
 }
 
 class ApiService implements ApiServiceInterface {
@@ -11,8 +11,8 @@ class ApiService implements ApiServiceInterface {
 
   private constructor () {}
 
-  async request (resource: GQLApiResourceRequest): Promise<ApolloQueryResult<any>> {
-    return await apolloClient.query({
+  async request<T> (resource: GQLApiResourceRequest): Promise<ApolloQueryResult<T>> {
+    return await apolloClient.query<T>({
       query: resource.query,
       variables: resource.variables
     })
