@@ -5,6 +5,7 @@ import { resources } from '../../entities/api-resources/'
 
 export interface AnimesUseCasesInterface {
   getAnimes (): Promise<Anime[]>
+  getAnimesOfSeason (season: { name: string, year: number }): Promise<Anime[]>
 }
 
 export default class AnimesUseCases implements AnimesUseCasesInterface {
@@ -16,6 +17,13 @@ export default class AnimesUseCases implements AnimesUseCasesInterface {
 
   getAnimes = async (): Promise<Anime[]> => {
     const response = await this.service.request<PaginatedApiResult>(resources.AnimesOfASeason({ season: "SPRING", year: 2020 }))
+    return Promise.resolve(response.data.Page.media)
+  }
+
+  getAnimesOfSeason = async (season: { name: string, year: number }): Promise<Anime[]> => {
+    const response = await this.service.request<PaginatedApiResult>(
+      resources.AnimesOfASeason({ season: season.name, year: season.year })
+    )
     return Promise.resolve(response.data.Page.media)
   }
 }
