@@ -29,6 +29,7 @@ class AnimeList extends Component<Props> {
     return <ul>
       { animes.map(anime => 
         <li key={ anime.id }>
+          <img src={ anime.coverImage.medium } />
           <p><b>{ anime.title.romaji }</b></p>
           <small>{ anime.title.native }</small>
         </li>) }

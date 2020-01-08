@@ -2,12 +2,12 @@ import apolloClient from './apolloClient'
 import { GQLApiResourceRequest } from './apiResourceRequest'
 import { ApolloQueryResult } from 'apollo-client'
 
-export interface ApiServiceInterface {
+export interface GraphiQLApiServiceInterface {
   request<T> (resource: GQLApiResourceRequest): Promise<ApolloQueryResult<T>>
 }
 
-class ApiService implements ApiServiceInterface {
-  static readonly instance = new ApiService()
+class GraphiQLApiService implements GraphiQLApiServiceInterface {
+  static readonly instance = new GraphiQLApiService()
 
   private constructor () {}
 
@@ -19,4 +19,4 @@ class ApiService implements ApiServiceInterface {
   }
 }
 
-export const service = ApiService.instance
+export const graphiQLApiService = GraphiQLApiService.instance

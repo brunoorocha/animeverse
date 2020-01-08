@@ -1,11 +1,14 @@
 export interface Anime {
   id: number
-  title: AnimeTitle
-  status: string, 
-}
-
-export interface AnimeTitle {
-  romaji: string
-  english: string
-  native: string
+  title: {
+    romaji: string,
+    english: string,
+    native: string
+  }
+  status: string,
+  coverImage: {
+    extraLarge: string,
+    large: string,
+    medium: string
+  }
 }
