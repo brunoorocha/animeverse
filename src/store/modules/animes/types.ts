@@ -12,6 +12,11 @@ export enum AnimesTypes {
   LOAD_ANIME_LIST_FAILURE = '@animes/LOAD_ANIME_LIST_FAILURE'
 }
 
+export interface SetSeasonAction {
+  type: typeof AnimesTypes.SET_SEASON,
+  payload: { season: Season, year: number }
+}
+
 /**
  * Data Types
  */

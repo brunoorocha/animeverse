@@ -1,9 +1,9 @@
 
-import { call, put, select } from 'redux-saga/effects'
+import { call, put } from 'redux-saga/effects'
 import AnimesUseCases from '../../../domain/use-cases/animes/AnimesUseCases'
 import { graphiQLApiService } from '../../../services/GraphiQLApiService'
 import { loadAnimesSuccess, loadAnimesFailure, loadAnimesOfASeasonSuccess } from './actions'
-import { ApplicationState } from '../../'
+import { SetSeasonAction } from './types'
 
 export function* loadAnimes () {
   try {
@@ -16,12 +16,11 @@ export function* loadAnimes () {
   }
 }
 
-export function* loadAnimesOfASeason () {
+export function* loadAnimesOfASeason (action: SetSeasonAction) {
   try {
-    const state: ApplicationState = yield select(state => state)
     const useCases = new AnimesUseCases(graphiQLApiService)
-    const name = state.animes.season.name ? state.animes.season.name.toString() : ''
-    const year = state.animes.season.year ? state.animes.season.year : new Date().getFullYear()
+    const name = action.payload.season
+    const year = action.payload.year
     const response = yield call(useCases.getAnimesOfSeason, name, year)
     yield put(loadAnimesOfASeasonSuccess(response))
   }
