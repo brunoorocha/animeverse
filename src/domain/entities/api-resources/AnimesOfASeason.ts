@@ -9,7 +9,8 @@ const resource = (options: { season: string, year: number }): GQLApiResourceRequ
         season: $season,
         seasonYear: $year,
         type: ANIME,
-        sort: POPULARITY
+        sort: START_DATE,
+        isAdult: false,
       ) {
         id,
         status,

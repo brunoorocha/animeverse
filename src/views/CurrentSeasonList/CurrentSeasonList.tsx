@@ -1,6 +1,7 @@
 import React from "react"
 import { Season, SeasonUtils } from '../../domain/entities/Season'
 import { Anime } from '../../domain/entities/Anime'
+import AnimesList from '../../components/AnimesList'
 
 interface StateProps {
   season: {
@@ -25,11 +26,7 @@ export default class CurrentSeasonList extends React.Component<Props> {
     return (
       <div>
         <h1>{ this.props.season.name }</h1>
-
-        <ul>
-          { this.props.season.animes?.map(
-            anime => <li key={anime.id}>{ anime.title.romaji }</li> )}
-        </ul>
+        <AnimesList animes={ this.props.season.animes || [] } />
       </div>
     )
   }
