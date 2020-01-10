@@ -7,7 +7,7 @@ export const loadAnimes = () => action(AnimesTypes.LOAD_ANIME_LIST);
 
 export const setSeason = (season: Season) => action(AnimesTypes.SET_SEASON, { season })
 
-export const loadAnimesOfASeason = () => action(AnimesTypes.LOAD_ANIMES_OF_A_SEASON);
+export const loadAnimesOfASeasonSuccess = (animes: Anime[]) => action(AnimesTypes.LOAD_ANIMES_OF_A_SEASON, { animes });
 
 export const loadAnimesSuccess = (animes: Anime[]) => action(AnimesTypes.LOAD_ANIME_LIST_SUCCESS, { animes });
 

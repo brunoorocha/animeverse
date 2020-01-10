@@ -27,9 +27,15 @@ class CurrentSeasonList extends React.Component<Props> {
   }
 
   render () {
-    return <div>
-      <h1>{ this.props.season.name }</h1>
-    </div>
+    return (
+      <div>
+        <h1>{ this.props.season.name }</h1>
+
+        <ul>
+          { this.props.season.animes?.map(anime => <li key={anime.id}>{ anime.title.romaji }</li>)}
+        </ul>
+      </div>
+    )
   }
 }
 
