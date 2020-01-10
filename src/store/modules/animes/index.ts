@@ -14,7 +14,7 @@ const reducer: Reducer<AnimesState> = (state = INITIAL_STATE, action) => {
       return { ...state, isLoading: true }
 
     case AnimesTypes.SET_SEASON:
-      return { ...state, season: { name: action.payload.season }}
+      return { ...state, season: { name: action.payload.season, year: action.payload.year }}
     
     case AnimesTypes.LOAD_ANIMES_OF_A_SEASON: 
       return { ...state, season: { name: state.season?.name, animes: action.payload.animes }, isLoading: false, hasError: false }

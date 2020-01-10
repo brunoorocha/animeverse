@@ -21,7 +21,7 @@ export function* loadAnimesOfASeason () {
     const state: ApplicationState = yield select(state => state)
     const useCases = new AnimesUseCases(graphiQLApiService)
     const name = state.animes.season.name ? state.animes.season.name.toString() : ''
-    const year = 2020
+    const year = state.animes.season.year ? state.animes.season.year : new Date().getFullYear()
     const response = yield call(useCases.getAnimesOfSeason, name, year)
     yield put(loadAnimesOfASeasonSuccess(response))
   }

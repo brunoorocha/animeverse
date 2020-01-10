@@ -5,7 +5,7 @@ import { Season } from '../../../domain/entities/Season';
 
 export const loadAnimes = () => action(AnimesTypes.LOAD_ANIME_LIST);
 
-export const setSeason = (season: Season) => action(AnimesTypes.SET_SEASON, { season })
+export const setSeason = (season: Season, year: number) => action(AnimesTypes.SET_SEASON, { season, year })
 
 export const loadAnimesOfASeasonSuccess = (animes: Anime[]) => action(AnimesTypes.LOAD_ANIMES_OF_A_SEASON, { animes });
 

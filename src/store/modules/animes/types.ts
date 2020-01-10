@@ -17,7 +17,7 @@ export enum AnimesTypes {
  */
 export interface AnimesState {
   readonly animes: Anime[],
-  readonly season: { name?: Season, animes?: Anime[] },
+  readonly season: { name?: Season, year?: number, animes?: Anime[] },
   readonly isLoading: boolean,
   readonly hasError: boolean
 }

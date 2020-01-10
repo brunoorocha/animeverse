@@ -10,14 +10,15 @@ interface StateProps {
 }
 
 interface DispatchProps {
-  setSeason (season: Season): void
+  setSeason (season: Season, year: number): void
 }
 
 type Props = StateProps & DispatchProps
 
 export default class CurrentSeasonList extends React.Component<Props> {
   componentDidMount () {
-    this.props.setSeason(SeasonUtils.currentSeason())
+    const currentYear = new Date().getFullYear()
+    this.props.setSeason(SeasonUtils.currentSeason(), currentYear)
   }
 
   render () {
