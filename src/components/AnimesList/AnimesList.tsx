@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Anime } from '../../domain/entities/Anime'
+import DateUtils from '../../domain/utils/DateUtils'
 import style from './style.module.scss'
 
 interface Props {
@@ -7,6 +8,14 @@ interface Props {
 }
 
 export default class AnimeList extends Component<Props> {
+  formatDate (day: number, month: number, year: number) {
+    return DateUtils.dateFromApiFormatToEnUS(day, month, year)
+  }
+
+  nextEpisodeDate (timestamp: number) {
+    return DateUtils.formattedEnUSNextEpisodeAiringDate(timestamp)
+  }
+
   render () {
     const { animes } = this.props
 
@@ -19,7 +28,11 @@ export default class AnimeList extends Component<Props> {
             </div>
 
             <p><b>{ anime.title.romaji }</b></p>
-            <small>{ anime.title.native }</small>
+            { 
+              anime.nextAiringEpisode 
+                ? <small>{ `Next episode airing ${ this.nextEpisodeDate(anime.nextAiringEpisode.airingAt) }` }</small>
+                : <small>Next episode date unknow</small>
+            }
           </li>
         )}
       </ul>

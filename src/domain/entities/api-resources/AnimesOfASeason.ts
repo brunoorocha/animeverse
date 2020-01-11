@@ -28,6 +28,11 @@ const resource = (options: { season: string, year: number }): GQLApiResourceRequ
           year
           month
           day
+        },
+        nextAiringEpisode {
+          episode,
+          airingAt,
+          timeUntilAiring
         }
       }
     }

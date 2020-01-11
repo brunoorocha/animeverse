@@ -10,5 +10,15 @@ export interface Anime {
     extraLarge: string,
     large: string,
     medium: string
-  }
+  },
+  startDate: {
+    day: number,
+    month: number,
+    year: number
+  },
+  nextAiringEpisode?: {
+    episode: number,
+    airingAt: number,
+    timeUntilAiring: number
+  },
 }
