@@ -1,7 +1,7 @@
 import React from "react"
 import { Season, SeasonUtils } from '../../domain/entities/Season'
 import { Anime } from '../../domain/entities/Anime'
-import AnimesList from '../../components/AnimesList/'
+import { AnimesList } from '../../components/shared'
 
 interface StateProps {
   season: {
