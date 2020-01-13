@@ -1,7 +1,7 @@
-import { Anime } from './Anime'
+import { AnimeListElement } from './AnimeListElement'
 
 export interface Page {
-  media: Anime[]
+  media: AnimeListElement[]
 }
 
 export interface PaginatedApiResult {

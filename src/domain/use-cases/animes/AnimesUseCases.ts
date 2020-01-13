@@ -1,11 +1,10 @@
-import { Anime } from '../../entities/Anime'
+import { AnimeListElement } from '../../entities/AnimeListElement'
 import { PaginatedApiResult } from '../../entities/ApiResults'
 import { GraphiQLApiServiceInterface } from '../../../services/GraphiQLApiService'
 import { resources } from '../../entities/api-resources/'
 
 export interface AnimesUseCasesInterface {
-  getAnimes (): Promise<Anime[]>
-  getAnimesOfSeason (name: string, year: number): Promise<Anime[]>
+  getAnimesOfSeason (name: string, year: number): Promise<AnimeListElement[]>
 }
 
 export default class AnimesUseCases implements AnimesUseCasesInterface {
@@ -15,12 +14,7 @@ export default class AnimesUseCases implements AnimesUseCasesInterface {
     this.service = service
   }
 
-  getAnimes = async (): Promise<Anime[]> => {
-    const response = await this.service.request<PaginatedApiResult>(resources.AnimesOfASeason({ season: "SPRING", year: 2020 }))
-    return Promise.resolve(response.data.Page.media)
-  }
-
-  getAnimesOfSeason = async (name: string, year: number): Promise<Anime[]> => {
+  getAnimesOfSeason = async (name: string, year: number): Promise<AnimeListElement[]> => {
     const response = await this.service.request<PaginatedApiResult>(
       resources.AnimesOfASeason({ season: name, year: year })
     )

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Anime } from '../../../domain/entities/Anime'
+import { AnimeListElement } from '../../../domain/entities/AnimeListElement'
 import DateUtils from '../../../domain/utils/DateUtils'
 import AnimeCard from '../AnimeCard/AnimeCard'
 import style from './style.module.scss'
 
 interface Props {
-  animes: Anime[]
+  animes: AnimeListElement[]
 }
 
 export default class AnimeList extends Component<Props> {

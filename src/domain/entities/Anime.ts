@@ -8,8 +8,7 @@ export interface Anime {
   status: string,
   coverImage: {
     extraLarge: string,
-    large: string,
-    medium: string
+    large: string
   },
   startDate: {
     day: number,

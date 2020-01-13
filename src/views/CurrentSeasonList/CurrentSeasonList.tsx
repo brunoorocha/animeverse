@@ -1,12 +1,12 @@
 import React from "react"
 import { Season, SeasonUtils } from '../../domain/entities/Season'
-import { Anime } from '../../domain/entities/Anime'
+import { AnimeListElement } from '../../domain/entities/AnimeListElement'
 import { AnimesList } from '../../components/shared'
 
 interface StateProps {
   season: {
     name?: Season,
-    animes?: Anime[]
+    animes?: AnimeListElement[]
   }
 }
 

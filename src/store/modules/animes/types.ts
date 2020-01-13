@@ -1,5 +1,5 @@
-import { Anime } from "../../../domain/entities/Anime";
-import { Season } from "../../../domain/entities/Season";
+import { AnimeListElement } from '../../../domain/entities/AnimeListElement'
+import { Season } from '../../../domain/entities/Season'
 
 /**
  * Action Types
@@ -21,8 +21,8 @@ export interface SetSeasonAction {
  * Data Types
  */
 export interface AnimesState {
-  readonly animes: Anime[],
-  readonly season: { name?: Season, year?: number, animes?: Anime[] },
+  readonly animes: AnimeListElement[],
+  readonly season: { name?: Season, year?: number, animes?: AnimeListElement[] },
   readonly isLoading: boolean,
   readonly hasError: boolean
 }

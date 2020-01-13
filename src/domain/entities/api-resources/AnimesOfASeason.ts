@@ -3,40 +3,27 @@ import gql from 'graphql-tag'
 
 const resource = (options: { season: string, year: number }): GQLApiResourceRequest => ({
   query: gql`
-  query($season: MediaSeason, $year: Int) {
-    Page(page: 1) {
-      media(
-        season: $season,
-        seasonYear: $year,
-        type: ANIME,
-        sort: START_DATE,
-        isAdult: false,
-      ) {
-        id,
-        status,
-        coverImage {
-          extraLarge,
-          large,
-          medium
-        },
-        title {
-          romaji,
-          english,
-          native
-        },
-        startDate {
-          year
-          month
-          day
-        },
-        nextAiringEpisode {
-          episode,
-          airingAt,
-          timeUntilAiring
+    query($season: MediaSeason, $year: Int) {
+      Page(page: 1) {
+        media(
+          season: $season,
+          seasonYear: $year,
+          type: ANIME,
+          sort: START_DATE,
+          isAdult: false,
+        ) {
+          id,
+          coverImage {
+            large
+          },
+          title {
+            romaji,
+            english
+          }
         }
       }
     }
-  }`,
+  `,
 
   variables: { season: options.season, year: options.year }
 })
