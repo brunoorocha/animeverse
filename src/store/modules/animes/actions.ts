@@ -7,8 +7,6 @@ export const loadAnimes = () => action(AnimesTypes.LOAD_ANIME_LIST);
 
 export const setSeason = (season: Season, year: number) => action(AnimesTypes.SET_SEASON, { season, year })
 
-export const loadAnimesOfASeasonSuccess = (animes: AnimeListElement[]) => action(AnimesTypes.LOAD_ANIMES_OF_A_SEASON, { animes });
-
 export const loadAnimesSuccess = (animes: AnimeListElement[]) => action(AnimesTypes.LOAD_ANIME_LIST_SUCCESS, { animes });
 
 export const loadAnimesFailure = () => action(AnimesTypes.LOAD_ANIME_LIST_FAILURE);

@@ -6,8 +6,8 @@ import { AnimesList } from '../../components/shared'
 interface StateProps {
   season: {
     name?: Season,
-    animes?: AnimeListElement[]
   }
+  animes?: AnimeListElement[]
 }
 
 interface DispatchProps {
@@ -26,7 +26,7 @@ export default class CurrentSeasonList extends React.Component<Props> {
     return (
       <div>
         <h1>{ this.props.season.name }</h1>
-        <AnimesList animes={ this.props.season.animes || [] } />
+        <AnimesList animes={ this.props.animes || [] } />
       </div>
     )
   }

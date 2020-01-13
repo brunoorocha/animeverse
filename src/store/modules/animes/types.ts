@@ -7,7 +7,6 @@ import { Season } from '../../../domain/entities/Season'
 export enum AnimesTypes {
   LOAD_ANIME_LIST = '@animes/LOAD_ANIME_LIST',
   SET_SEASON = '@animes/SET_SEASON',
-  LOAD_ANIMES_OF_A_SEASON = '@animes/LOAD_ANIMES_OF_A_SEASON',
   LOAD_ANIME_LIST_SUCCESS = '@animes/LOAD_ANIME_LIST_SUCCESS',
   LOAD_ANIME_LIST_FAILURE = '@animes/LOAD_ANIME_LIST_FAILURE'
 }
@@ -22,7 +21,7 @@ export interface SetSeasonAction {
  */
 export interface AnimesState {
   readonly animes: AnimeListElement[],
-  readonly season: { name?: Season, year?: number, animes?: AnimeListElement[] },
+  readonly season: { name?: Season, year?: number },
   readonly isLoading: boolean,
   readonly hasError: boolean
 }
