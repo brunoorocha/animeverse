@@ -1,0 +1,17 @@
+@import '../../../assets/css/variables.scss';
+
+.tab_bar {
+  display: flex;
+  margin-top: $smedium;
+
+  .tab_item {
+    color: $dark-gray;
+    font-family: $font-default;
+    font-size: $lmedium;
+    margin-right: $lmedium;
+
+    &.active {
+      color: $primary;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import React from "react"
 import { Season, SeasonUtils } from '../../domain/entities/Season'
 import { AnimeListElement } from '../../domain/entities/AnimeListElement'
-import { AnimesList, PageContent } from '../../components/shared'
+import { AnimesList, PageContent, TabBar, TabItem, VSpacer } from '../../components/shared'
 
 interface StateProps {
   season: {
@@ -26,7 +26,15 @@ export default class CurrentSeasonList extends React.Component<Props> {
     return (
       <div>
         <PageContent>
-          <h1>{ this.props.season.name }</h1>
+          <h5>seasons</h5>
+          <TabBar>
+            <TabItem isActive>Winter</TabItem>
+            <TabItem>Spring</TabItem>
+            <TabItem>Summer</TabItem>
+            <TabItem>Fall</TabItem>
+          </TabBar>
+
+          <VSpacer />
           <AnimesList animes={ this.props.animes || [] } />
         </PageContent>
       </div>
