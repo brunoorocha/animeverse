@@ -1,14 +1,16 @@
 import React from 'react';
 import { Provider } from 'react-redux'
 
-import CurrentSeasonListContainer from './views/CurrentSeasonList/CurrentSeasonListContainer'
+import SeasonsPageContainer from './views/seasons-page/SeasonsPageContainer'
 
 import store from './store'
+
+import './assets/css/style.scss'
 
 const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <CurrentSeasonListContainer />
+      <SeasonsPageContainer />
     </Provider>
   );
 }

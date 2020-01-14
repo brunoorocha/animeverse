@@ -9,8 +9,9 @@ const resource = (options: { season: string, year: number }): GQLApiResourceRequ
           season: $season,
           seasonYear: $year,
           type: ANIME,
-          sort: START_DATE,
-          isAdult: false,
+          format: TV,
+          sort: POPULARITY_DESC,
+          isAdult: false
         ) {
           id,
           coverImage {

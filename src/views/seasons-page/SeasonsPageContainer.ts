@@ -4,7 +4,7 @@ import { bindActionCreators, Dispatch } from 'redux'
 import { ApplicationState } from '../../store'
 import * as AnimesActions from '../../store/modules/animes/actions'
 
-import CurrentSeasonList from './CurrentSeasonList'
+import CurrentSeasonList from './SeasonsPage'
 
 const mapStateToProps = (state: ApplicationState) => ({
   season: state.animes.season,
