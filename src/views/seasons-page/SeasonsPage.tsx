@@ -28,10 +28,10 @@ export default class CurrentSeasonList extends React.Component<Props> {
         <PageContent>
           <h5>seasons</h5>
           <TabBar>
-            <TabItem isActive>Winter</TabItem>
-            <TabItem>Spring</TabItem>
-            <TabItem>Summer</TabItem>
-            <TabItem>Fall</TabItem>
+            <TabItem name="winter" isActive>Winter</TabItem>
+            <TabItem name="spring">Spring</TabItem>
+            <TabItem name="summer">Summer</TabItem>
+            <TabItem name="fall">Fall</TabItem>
           </TabBar>
 
           <VSpacer />

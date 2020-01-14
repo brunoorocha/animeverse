@@ -9,6 +9,12 @@
     font-family: $font-default;
     font-size: $lmedium;
     margin-right: $lmedium;
+    cursor: pointer;
+    transition: .2s ease-out;
+
+    &:hover {
+      color: $white;
+    }
 
     &.active {
       color: $primary;
