@@ -30,7 +30,23 @@ const seasonForDate = (date: Date): Season => {
   }
 }
 
+const seasonFromRawValue = (rawValue: string): Season | null => {
+  switch (rawValue) {
+    case Season.WINTER:
+      return Season.WINTER
+    case Season.SPRING:
+      return Season.SPRING
+    case Season.SUMMER:
+      return Season.SUMMER
+    case Season.FALL:
+      return Season.FALL
+    default:
+      return null
+  }
+}
+
 export const SeasonUtils = {
   currentSeason,
-  seasonForDate  
+  seasonForDate,
+  seasonFromRawValue
 }

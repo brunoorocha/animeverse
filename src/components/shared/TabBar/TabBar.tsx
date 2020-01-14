@@ -4,6 +4,7 @@ import { TabItem } from '..'
 
 interface Props {
   children: JSX.Element[]
+  onTabChange (activeTabName: string): void
 }
 
 interface State {
@@ -11,6 +12,11 @@ interface State {
 }
 
 export default class TabBar extends React.Component<Props, State> {
+  static defaultProps: Props = {
+    children: [],
+    onTabChange: () => {}
+  }
+
   constructor (props: Props) {
     super(props)
 
@@ -21,6 +27,7 @@ export default class TabBar extends React.Component<Props, State> {
 
   onTabItemClick = (tabItemName: string) => {
     this.setState({ tabActive: tabItemName })
+    this.props.onTabChange(tabItemName)
   }
 
   render () {

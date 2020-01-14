@@ -8,7 +8,7 @@ export interface AnimeListElement {
     large: string
   },
   studios: {
-    nodes: Studio[]
+    nodes?: Studio[]
   }
 }
 

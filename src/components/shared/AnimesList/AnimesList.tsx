@@ -27,7 +27,7 @@ export default class AnimeList extends Component<Props> {
             <AnimeCard
               coverImageUrl={ anime.coverImage.large }
               title={ anime.title.romaji }
-              subtitle={ anime.studios.nodes[0].name } />
+              subtitle={ anime.studios.nodes?.length ? anime.studios.nodes[0].name : '' } />
           </li>
         )}
       </ul>

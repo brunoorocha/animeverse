@@ -17,6 +17,14 @@ interface DispatchProps {
 type Props = StateProps & DispatchProps
 
 export default class CurrentSeasonList extends React.Component<Props> {
+  activeTabDidChange = (activeTabName: string) => {
+    const currentYear = new Date().getFullYear()
+    const season = SeasonUtils.seasonFromRawValue(activeTabName)
+    if (season) {
+      this.props.setSeason(season, currentYear)
+    }
+  }
+
   componentDidMount () {
     const currentYear = new Date().getFullYear()
     this.props.setSeason(SeasonUtils.currentSeason(), currentYear)
@@ -27,11 +35,11 @@ export default class CurrentSeasonList extends React.Component<Props> {
       <div>
         <PageContent>
           <h5>seasons</h5>
-          <TabBar>
-            <TabItem name="winter" isActive>Winter</TabItem>
-            <TabItem name="spring">Spring</TabItem>
-            <TabItem name="summer">Summer</TabItem>
-            <TabItem name="fall">Fall</TabItem>
+          <TabBar onTabChange={this.activeTabDidChange}>
+            <TabItem name={Season.WINTER} isActive>Winter</TabItem>
+            <TabItem name={Season.SPRING}>Spring</TabItem>
+            <TabItem name={Season.SUMMER}>Summer</TabItem>
+            <TabItem name={Season.FALL}>Fall</TabItem>
           </TabBar>
 
           <VSpacer />
