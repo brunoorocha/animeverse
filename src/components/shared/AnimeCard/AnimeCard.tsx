@@ -5,6 +5,7 @@ import style from './style.module.scss'
 interface Props {
   coverImageUrl: string
   title: string
+  subtitle: string
 }
 
 const AnimeCard: React.FC<Props> = (props) => {
@@ -16,7 +17,7 @@ const AnimeCard: React.FC<Props> = (props) => {
 
       <GradientOverlay className={style.overlay}>
         <h4 className={style.title}>{ props.title }</h4>
-        <span className={style.subtitle}>Kyoto Animation</span>
+        <span className={style.subtitle}>{ props.subtitle }</span>
       </GradientOverlay>
     </div>
   )

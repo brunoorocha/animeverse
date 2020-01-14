@@ -14,12 +14,18 @@ const resource = (options: { season: string, year: number }): GQLApiResourceRequ
           isAdult: false
         ) {
           id,
-          coverImage {
-            large
-          },
           title {
             romaji,
             english
+          },
+          coverImage {
+            large
+          },
+          studios {
+            nodes {
+              id,
+              name
+            }
           }
         }
       }

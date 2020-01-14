@@ -6,5 +6,13 @@ export interface AnimeListElement {
   }
   coverImage: {
     large: string
+  },
+  studios: {
+    nodes: Studio[]
   }
+}
+
+interface Studio {
+  id: number
+  name: string
 }

@@ -4,7 +4,7 @@ const PageContent = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 1024px;
+  max-width: 1360px;
   margin: 0 auto;
 `
 
