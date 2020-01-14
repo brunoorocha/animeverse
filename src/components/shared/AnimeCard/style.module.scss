@@ -1,10 +1,42 @@
-.cover {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  overflow: hidden;
+@import '../../../assets/css/variables.scss';
 
-  img {
+.card {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+
+  .cover {
+    display: flex;
+    justify-content: center;
     width: 100%;
+    overflow: hidden;
+    
+    img {
+      min-width: 100%;
+      min-height: 320px;
+      max-height: 320px;
+    }
+  }
+
+  div.overlay {
+    position: absolute;
+    margin-top: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+
+    .title {
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      font-family: $font-default;
+      color: $gray;
+      font-size: $lsmall;
+    }
   }
 }

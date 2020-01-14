@@ -1,4 +1,5 @@
 import React from 'react'
+import GradientOverlay from './GradientOverlay'
 import style from './style.module.scss'
 
 interface Props {
@@ -8,12 +9,15 @@ interface Props {
 
 const AnimeCard: React.FC<Props> = (props) => {
   return (
-    <div>
+    <div className={style.card}>
       <div className={style.cover}>
         <img src={ props.coverImageUrl } alt={ `Cover of anime ${ props.title }` } />
       </div>
 
-      <p><b>{ props.title }</b></p>
+      <GradientOverlay className={style.overlay}>
+        <h4 className={style.title}>{ props.title }</h4>
+        <span className={style.subtitle}>Kyoto Animation</span>
+      </GradientOverlay>
     </div>
   )
 }

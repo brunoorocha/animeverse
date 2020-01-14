@@ -18,13 +18,21 @@ h1 {
   color: $white;
 }
 
+h4 {
+  font-family: $font-default;
+  font-weight: 700;
+  font-size: $medium;
+  color: $white;
+}
+
 caption {
   font-family: $font-default;
   font-weight: 700;
-  font-size: $smedium;
+  font-size: $lsmall;
   color: $white;
   text-transform: uppercase;
   letter-spacing: 4px;
+  text-align: left;
 }
 
 p {
