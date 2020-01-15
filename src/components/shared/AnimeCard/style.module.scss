@@ -45,6 +45,7 @@
   display: flex;
   align-items: flex-end;
   background-color: rgba(255, 255, 255, 0.1);
+  animation: animated-background 0.8s alternate infinite linear;
 
   .cover {
     display: flex;
@@ -76,5 +77,14 @@
       height: $lsmall;
       background-color: rgba(255, 255, 255, 0.06);
     }
+  }
+}
+
+@keyframes animated-background {
+  0% {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0.14);
   }
 }
