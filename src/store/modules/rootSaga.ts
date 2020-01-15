@@ -1,10 +1,11 @@
 import { all, takeLatest } from 'redux-saga/effects'
 
 import { AnimesTypes } from './animes/types'
-import { loadAnimesOfASeason } from './animes/sagas'
+import { loadAnimesOfASeason, loadTheFiveMostPopularOfThisSeason } from './animes/sagas'
 
 export default function* rootSaga() {
    return yield all([
-     takeLatest(AnimesTypes.SET_SEASON, loadAnimesOfASeason)
+     takeLatest(AnimesTypes.SET_SEASON, loadAnimesOfASeason),
+     takeLatest(AnimesTypes.LOAD_MOST_POPULAR, loadTheFiveMostPopularOfThisSeason)
    ])
 }

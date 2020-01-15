@@ -6,7 +6,8 @@ export interface AnimeListElement {
   }
   coverImage: {
     large: string
-  },
+  }
+  bannerImage?: string
   studios: {
     nodes?: Studio[]
   }

@@ -5,10 +5,12 @@ import { Season } from '../../../domain/entities/Season'
  * Action Types
  */
 export enum AnimesTypes {
-  LOAD_ANIME_LIST = '@animes/LOAD_ANIME_LIST',
   SET_SEASON = '@animes/SET_SEASON',
+  LOAD_ANIME_LIST = '@animes/LOAD_ANIME_LIST',
   LOAD_ANIME_LIST_SUCCESS = '@animes/LOAD_ANIME_LIST_SUCCESS',
-  LOAD_ANIME_LIST_FAILURE = '@animes/LOAD_ANIME_LIST_FAILURE'
+  LOAD_ANIME_LIST_FAILURE = '@animes/LOAD_ANIME_LIST_FAILURE',
+  LOAD_MOST_POPULAR = '@animes/LOAD_MOST_POPULAR',
+  LOAD_MOST_POPULAR_SUCCESS = '@animes/LOAD_MOST_POPULAR_SUCCESS'
 }
 
 export interface SetSeasonAction {
@@ -21,6 +23,7 @@ export interface SetSeasonAction {
  */
 export interface AnimesState {
   readonly animes: AnimeListElement[],
+  readonly mostPopular: AnimeListElement[],
   readonly season: { name?: Season, year?: number },
   readonly isLoading: boolean,
   readonly hasError: boolean

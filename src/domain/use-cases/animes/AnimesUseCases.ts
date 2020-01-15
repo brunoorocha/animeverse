@@ -4,7 +4,8 @@ import { GraphiQLApiServiceInterface } from '../../../services/GraphiQLApiServic
 import { resources } from '../../entities/api-resources/'
 
 export interface AnimesUseCasesInterface {
-  getAnimesOfSeason (name: string, year: number): Promise<AnimeListElement[]>
+  getAnimesOfSeason (season: string, year: number): Promise<AnimeListElement[]>
+  getTheFiveMostPopularOfASeason (season: string, year: number): Promise<AnimeListElement[]>
 }
 
 export default class AnimesUseCases implements AnimesUseCasesInterface {
@@ -14,10 +15,18 @@ export default class AnimesUseCases implements AnimesUseCasesInterface {
     this.service = service
   }
 
-  getAnimesOfSeason = async (name: string, year: number): Promise<AnimeListElement[]> => {
+  getAnimesOfSeason = async (season: string, year: number): Promise<AnimeListElement[]> => {
     const response = await this.service.request<PaginatedApiResult>(
-      resources.AnimesOfASeason({ season: name, year: year })
+      resources.AnimesOfASeason({ season, year })
     )
+    return Promise.resolve(response.data.Page.media)
+  }
+
+  getTheFiveMostPopularOfASeason = async (season: string, year: number): Promise<AnimeListElement[]> => {
+    const response = await this.service.request<PaginatedApiResult>(
+      resources.FiveMorePopularOnASeason({ season, year })
+    )
+
     return Promise.resolve(response.data.Page.media)
   }
 }
