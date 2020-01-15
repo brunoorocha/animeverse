@@ -7,4 +7,5 @@ export { default as TabItem } from './TabBar/TabItem'
 export { default as VSpacer } from './VSpacer/VSpacer'
 export { default as WideCarousel } from './WideCarousel/WideCarousel'
 export { default as WideCarouselItem } from './WideCarousel/WideCarouselItem'
+export { default as Button } from './Button/Button'
 

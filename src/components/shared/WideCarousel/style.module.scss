@@ -1,3 +1,5 @@
+@import '../../../assets/css/variables.scss';
+
 .wide_carousel {
   display: flex;
   width: 100%;
@@ -9,7 +11,17 @@
     .content {
       height: 100%;
       background-position: center center;
-      
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      h1 {
+        margin-bottom: $lmedium;
+      }
+
+      h5 {
+        margin-bottom: $smedium;
+      }
+
       & > div {
         display: flex;
         align-items: flex-end;

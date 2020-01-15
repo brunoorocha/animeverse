@@ -1,0 +1,34 @@
+@import '../../../assets/css/variables.scss';
+
+.button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 2px solid $primary;
+  color: $primary;
+  font-family: $font-default;
+  font-weight: 500;
+  font-size: $smedium;
+  height: $slarge;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px $small 0px $smedium;
+  transition: .2s ease-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $primary;
+    color: $black;
+
+    .icon {
+      transform: translateX($xsmall);
+    }
+  }
+
+  .icon {
+    margin-left: $xsmall;
+    transition: .2s ease-out;
+  }
+}
