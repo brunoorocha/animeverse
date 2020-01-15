@@ -9,7 +9,8 @@ import CurrentSeasonList from './SeasonsPage'
 const mapStateToProps = (state: ApplicationState) => ({
   season: state.animes.season,
   animes: state.animes.animes,
-  mostPopular: state.animes.mostPopular
+  mostPopular: state.animes.mostPopular,
+  isLoading: state.animes.isLoading
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(AnimesActions, dispatch)

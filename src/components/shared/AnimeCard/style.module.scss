@@ -39,3 +39,42 @@
     }
   }
 }
+
+.card_wireframe {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  background-color: rgba(255, 255, 255, 0.1);
+
+  .cover {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+    height: 320px;
+  }
+
+  div.overlay {
+    position: absolute;
+    margin-top: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+
+    .title {
+      width: 80%;
+      height: $smedium;
+      background-color: rgba(255, 255, 255, 0.08);
+      margin-bottom: $small;
+    }
+
+    .subtitle {
+      width: 30%;
+      height: $lsmall;
+      background-color: rgba(255, 255, 255, 0.06);
+    }
+  }
+}

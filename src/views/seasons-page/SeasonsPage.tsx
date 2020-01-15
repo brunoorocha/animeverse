@@ -7,6 +7,7 @@ interface StateProps {
   season: {
     name?: Season,
   }
+  isLoading?: boolean
   mostPopular?: AnimeListElement[]
   animes?: AnimeListElement[]
 }
@@ -57,7 +58,9 @@ export default class SeasonsPage extends React.Component<Props> {
           </TabBar>
 
           <VSpacer />
-          <AnimesList animes={ this.props.animes || [] } />
+          <AnimesList
+            isLoading={ this.props.isLoading! }
+            animes={ this.props.animes || [] } />
         </PageContent>
       </div>
     )
