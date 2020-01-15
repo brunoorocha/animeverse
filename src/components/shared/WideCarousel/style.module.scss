@@ -1,0 +1,21 @@
+.wide_carousel {
+  display: flex;
+  width: 100%;
+  
+  .wide_carousel_item {
+    width: 100%;
+    height: 400px;
+    
+    .content {
+      height: 100%;
+      background-position: center center;
+      
+      & > div {
+        display: flex;
+        align-items: flex-end;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

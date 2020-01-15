@@ -1,22 +1,24 @@
 import React from "react"
 import { Season, SeasonUtils } from '../../domain/entities/Season'
 import { AnimeListElement } from '../../domain/entities/AnimeListElement'
-import { AnimesList, PageContent, TabBar, TabItem, VSpacer } from '../../components/shared'
+import { AnimesList, PageContent, TabBar, TabItem, VSpacer, WideCarousel, WideCarouselItem } from '../../components/shared'
 
 interface StateProps {
   season: {
     name?: Season,
   }
+  mostPopular?: AnimeListElement[]
   animes?: AnimeListElement[]
 }
 
 interface DispatchProps {
   setSeason (season: Season, year: number): void
+  loadMostPopular (): void
 }
 
 type Props = StateProps & DispatchProps
 
-export default class CurrentSeasonList extends React.Component<Props> {
+export default class SeasonsPage extends React.Component<Props> {
   activeTabDidChange = (activeTabName: string) => {
     const currentYear = new Date().getFullYear()
     const season = SeasonUtils.seasonFromRawValue(activeTabName)
@@ -28,11 +30,23 @@ export default class CurrentSeasonList extends React.Component<Props> {
   componentDidMount () {
     const currentYear = new Date().getFullYear()
     this.props.setSeason(SeasonUtils.currentSeason(), currentYear)
+    this.props.loadMostPopular()
   }
 
   render () {
     return (
       <div>
+        <WideCarousel>
+          {
+            this.props.mostPopular?.filter((anime, index) => index === 0 ? anime : undefined).map(anime =>
+              <WideCarouselItem
+                key={ anime.id }
+                imageUrl={ anime.bannerImage || '' }
+                title={ anime.title.romaji } />
+            )
+          }
+        </WideCarousel>
+
         <PageContent>
           <h5>seasons</h5>
           <TabBar onTabChange={this.activeTabDidChange}>
