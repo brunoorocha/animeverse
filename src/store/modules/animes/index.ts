@@ -29,6 +29,12 @@ const reducer: Reducer<AnimesState> = (state = INITIAL_STATE, action) => {
     case AnimesTypes.LOAD_MOST_POPULAR_SUCCESS:
       return { ...state, mostPopular: action.payload.animes }
 
+    case AnimesTypes.LOAD_ANIME:
+      return { ...state }
+
+    case AnimesTypes.LOAD_ANIME_SUCCESS:
+      return { ...state, detailedAnime: action.payload.anime }
+
     default:
       return state
   }
