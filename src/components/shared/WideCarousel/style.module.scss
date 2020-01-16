@@ -1,5 +1,7 @@
 @import '../../../assets/css/variables.scss';
 
+$transition-duration: 1s;
+
 .wide_carousel {
   display: flex;
   width: 100%;
@@ -12,7 +14,7 @@
     position: absolute;
     opacity: 0;
     z-index: 0;
-    transition: 1s ease-out;
+    transition: $transition-duration ease-out;
     perspective: 100px;
     
     &.current_slide {
@@ -48,5 +50,33 @@
       }
     }
   }
-  
+
+}
+
+.bullets {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: $lmedium;
+
+  .bullet {
+    width: $small;
+    height: $xsmall;
+    background-color: $dark-gray;
+    margin-right: $small;
+    transition: $transition-duration ease-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $light-gray;
+    }
+
+    &.current {
+      background-color: $white;
+    }
+  }
 }

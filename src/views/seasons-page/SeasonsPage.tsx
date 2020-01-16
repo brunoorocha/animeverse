@@ -52,6 +52,7 @@ export default class SeasonsPage extends React.Component<Props> {
             </WideCarousel>
         }
 
+        <VSpacer />
         <PageContent>
           <h5>seasons</h5>
           <TabBar onTabChange={this.activeTabDidChange}>
@@ -66,6 +67,8 @@ export default class SeasonsPage extends React.Component<Props> {
             isLoading={ this.props.isLoading! }
             animes={ this.props.animes || [] } />
         </PageContent>
+
+        <VSpacer />
       </div>
     )
   }

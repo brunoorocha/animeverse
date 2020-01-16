@@ -1,13 +1,11 @@
 import React from 'react'
+import Bullets from './Bullets'
+import PageContent from '../PageContent/PageContent'
 import style from './style.module.scss'
 
 interface Props {
   children: JSX.Element[],
   speed: number
-}
-
-interface State {
-  current: number
 }
 
 const WideCarousel = (props: Props) => {
@@ -19,22 +17,37 @@ const WideCarousel = (props: Props) => {
     setCurrent(next)
   }
 
+  const goToSlide = (slideNumber: number) => {
+    const slidesCount = props.children.length
+    if (slideNumber >= 0 && slideNumber < slidesCount) {
+      setCurrent(slideNumber)
+    }
+  }
+
   React.useEffect(() => {
-    setTimeout(() => {
-      nextSlide()
-    }, props.speed)
+    const timeOutId = setTimeout(nextSlide, props.speed)
+
+    return function () {
+      clearTimeout(timeOutId)
+    }
   })
 
   return (
-    <div className={style.wide_carousel}>
-      { props.children.map((slide, index) => (
-        <div 
-          className={current === index ? style.slide_wrapper +' '+ style.current_slide : style.slide_wrapper}
-          key={index}>
-            { slide }
-        </div>
-      )) }
-    </div>
+    <React.Fragment>
+      <div className={style.wide_carousel}>
+        { props.children.map((slide, index) => (
+          <div 
+            className={current === index ? style.slide_wrapper +' '+ style.current_slide : style.slide_wrapper}
+            key={index}>
+              { slide }
+          </div>
+        )) }
+      </div>
+
+      <PageContent>
+        <Bullets numberOfBullets={props.children.length} current={current} onBulletSelected={goToSlide} />
+      </PageContent>
+    </React.Fragment>
   )
 }
 
