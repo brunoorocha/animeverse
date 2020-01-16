@@ -55,6 +55,7 @@ export default class AnimeList extends Component<Props, State> {
         { animes.map(anime => 
           <li key={ anime.id }>
             <AnimeCard
+              animeId={ anime.id }
               coverImageUrl={ anime.coverImage.large }
               title={ anime.title.romaji }
               subtitle={ anime.studios.nodes?.length ? anime.studios.nodes[0].name : '' } />
