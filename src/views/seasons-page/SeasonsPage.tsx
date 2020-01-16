@@ -4,9 +4,7 @@ import { AnimeListElement } from '../../domain/entities/AnimeListElement'
 import { AnimesList, PageContent, TabBar, TabItem, VSpacer, WideCarousel, WideCarouselItem } from '../../components/shared'
 
 interface StateProps {
-  season: {
-    name?: Season,
-  }
+  season: { name?: Season }
   isLoading?: boolean
   mostPopular?: AnimeListElement[]
   animes?: AnimeListElement[]
@@ -20,7 +18,12 @@ interface DispatchProps {
 type Props = StateProps & DispatchProps
 
 export default class SeasonsPage extends React.Component<Props> {
-  activeTabDidChange = (activeTabName: string) => {
+  constructor (props: Props) {
+    super(props)
+    this.activeTabDidChange = this.activeTabDidChange.bind(this)
+  }
+
+  activeTabDidChange (activeTabName: string) {
     const currentYear = new Date().getFullYear()
     const season = SeasonUtils.seasonFromRawValue(activeTabName)
     if (season) {
@@ -37,17 +40,19 @@ export default class SeasonsPage extends React.Component<Props> {
   render () {
     return (
       <div>
-        <WideCarousel>
-          {
-            this.props.mostPopular?.filter((anime, index) => index === 0 ? anime : undefined).map(anime =>
-              <WideCarouselItem
-                key={ anime.id }
-                imageUrl={ anime.bannerImage || '' }
-                title={ anime.title.romaji } />
-            )
-          }
-        </WideCarousel>
+        {
+          (this.props.mostPopular && this.props.mostPopular.length > 0) && 
+            <WideCarousel speed={8000}>
+              { this.props.mostPopular.map(anime =>
+                  <WideCarouselItem
+                    key={ anime.id }
+                    imageUrl={ anime.bannerImage || '' }
+                    title={ anime.title.romaji } />
+              )}
+            </WideCarousel>
+        }
 
+        <VSpacer />
         <PageContent>
           <h5>seasons</h5>
           <TabBar onTabChange={this.activeTabDidChange}>
