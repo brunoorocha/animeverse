@@ -1,9 +1,8 @@
-import { AnimeListElement } from './AnimeListElement'
 
-export interface Page {
-  media: AnimeListElement[]
+export interface Page<T> {
+  media: T
 }
 
-export interface PaginatedApiResult {
-  Page: Page
+export interface PaginatedApiResult<T> {
+  Page: Page<T>
 }
