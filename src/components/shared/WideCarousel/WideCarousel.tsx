@@ -10,44 +10,32 @@ interface State {
   current: number
 }
 
-export default class WideCarousel extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props)
-    this.state = {
-      current: 0
-    }
+const WideCarousel = (props: Props) => {
+  const [current, setCurrent] = React.useState(0)
 
-    this.changeCurrentVisibleSlide = this.changeCurrentVisibleSlide.bind(this)
-    this.nextSlide = this.nextSlide.bind(this)
-  }
-
-  componentDidMount () {
-    setTimeout(this.changeCurrentVisibleSlide, this.props.speed)
-  }
-
-  nextSlide () {
-    const { current } = this.state
-    const slidesCount = this.props.children.length
+  const nextSlide = () => {
+    const slidesCount = props.children.length
     const next = (current + 1) % slidesCount
-    this.setState({ current: next })
+    setCurrent(next)
   }
 
-  changeCurrentVisibleSlide () {
-    this.nextSlide()
-    setTimeout(this.changeCurrentVisibleSlide, this.props.speed)
-  }
+  React.useEffect(() => {
+    setTimeout(() => {
+      nextSlide()
+    }, props.speed)
+  })
 
-  render () {
-    return (
-      <div className={style.wide_carousel}>
-        { this.props.children.map((slide, index) => (
-          <div 
-            className={this.state.current === index ? style.slide_wrapper +' '+ style.current_slide : style.slide_wrapper}
-            key={index}>
-              { slide }
-          </div>
-        )) }
-      </div>
-    )
-  }
+  return (
+    <div className={style.wide_carousel}>
+      { props.children.map((slide, index) => (
+        <div 
+          className={current === index ? style.slide_wrapper +' '+ style.current_slide : style.slide_wrapper}
+          key={index}>
+            { slide }
+        </div>
+      )) }
+    </div>
+  )
 }
+
+export default WideCarousel
