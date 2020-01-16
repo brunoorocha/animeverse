@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import SeasonsPageContainer from './views/seasons-page/SeasonsPageContainer'
-import AnimeDetails from './views/anime-details/AnimeDetails'
+import AnimeDetailsContainer from './views/anime-details/AnimeDetailsContainer'
 
 import store from './store'
 
@@ -15,7 +15,7 @@ const App: React.FC = () => {
       <Router>
         <Switch>
           <Route path="/details/:animeId">
-            <AnimeDetails />
+            <AnimeDetailsContainer />
           </Route>
 
           <Route path="">
