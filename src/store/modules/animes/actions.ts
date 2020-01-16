@@ -16,6 +16,6 @@ export const loadMostPopular = () => action(AnimesTypes.LOAD_MOST_POPULAR);
 
 export const loadMostPopularSuccess = (animes: AnimeListElement[]) => action(AnimesTypes.LOAD_MOST_POPULAR_SUCCESS, { animes });
 
-export const loadAnime = (animeId: number) => action(AnimesTypes.LOAD_ANIME);
+export const loadAnime = (animeId: number) => action(AnimesTypes.LOAD_ANIME, { animeId });
 
 export const loadAnimeSuccess = (anime: Anime) => action(AnimesTypes.LOAD_ANIME_SUCCESS, { anime });

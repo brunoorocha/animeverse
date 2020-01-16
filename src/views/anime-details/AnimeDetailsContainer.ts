@@ -7,7 +7,7 @@ import * as AnimesActions from '../../store/modules/animes/actions'
 import AnimeDetails from './AnimeDetails'
 
 const mapStateToProps = (state: ApplicationState) => ({
-  // anime: state.animes.detailedAnime
+  anime: state.animes.detailedAnime
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(AnimesActions, dispatch)
